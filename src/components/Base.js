@@ -30,6 +30,19 @@ const nextVariants = {
   },
 };
 
+const buttonVariants = {
+  hover: {
+    // scale: [1, 1.1, 1, 1.1, 1, 1.1, 1], // keyframes. Repeating/yoyo below
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255, 255, 255)",
+    boxShadow: "0px 0px 8px rgb(255, 255, 255)",
+    transition: {
+      duration: 0.3,
+      yoyo: Infinity,
+    },
+  },
+};
+
 const Base = ({ addBase, pizza }) => {
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
 
@@ -66,13 +79,7 @@ const Base = ({ addBase, pizza }) => {
           // Variants propogate down the React tree to child elements, so if the same property names ('hidden', 'visible) are used in a child element's variants object, they will be implicitly interpreted as the objects for the 'initial' and 'animate' props, and therefore they need not be passed explicitly to the child element here.
         >
           <Link to="/toppings">
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0px 0px 8px rgb(255, 255, 255)",
-                boxShadow: "0px 0px 8px rgb(255, 255, 255)",
-              }}
-            >
+            <motion.button variants={buttonVariants} whileHover="hover">
               Next
             </motion.button>
           </Link>
