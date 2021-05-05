@@ -4,7 +4,12 @@ import { motion } from "framer-motion";
 const Header = () => {
   return (
     <header>
-      <div className="logo">
+      <motion.div
+        className="logo"
+        drag
+        dragConstraints={{ top: 0, bottom: 0, left: 0, right: 0 }}
+        dragElastic={1}
+      >
         <svg
           className="pizza-svg"
           xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +21,7 @@ const Header = () => {
           />
           <path fill="none" d="M50 30 L50 -10 C50 -10 90 -10 90 30 Z" />
         </svg>
-      </div>
+      </motion.div>
       <motion.div
         className="title"
         initial={{ y: -250 }}
