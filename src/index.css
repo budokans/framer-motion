@@ -108,7 +108,7 @@ li span.active::before{
 
 /* modal */
 .backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -118,10 +118,6 @@ li span.active::before{
 }
 
 .modal {
-  position: fixed;
-  z-index: 2;
-  right: 0;
-  left: 0;
   max-width: 400px;
   margin: 0 auto;
   padding: 40px 20px;

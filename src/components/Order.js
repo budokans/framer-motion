@@ -17,6 +17,12 @@ const containerVariants = {
       staggerChildren: 0.4,
     },
   },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
 };
 
 const childVariants = {
@@ -32,7 +38,7 @@ const Order = ({ pizza, setShowModal }) => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setShowModal(true);
-    }, 5000);
+    }, 1000);
 
     return () => clearTimeout(timeoutId);
   });
@@ -43,6 +49,7 @@ const Order = ({ pizza, setShowModal }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <h2>Thank you for your order :)</h2>
 
