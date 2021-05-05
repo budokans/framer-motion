@@ -10,7 +10,7 @@ import Modal from "./components/Modal";
 
 function App() {
   const [pizza, setPizza] = useState({ base: "", toppings: [] });
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
 
   const addBase = (base) => {
@@ -39,7 +39,7 @@ function App() {
             <Toppings addTopping={addTopping} pizza={pizza} />
           </Route>
           <Route path="/order">
-            <Order pizza={pizza} />
+            <Order pizza={pizza} setShowModal={setShowModal} />
           </Route>
           <Route path="/">
             <Home />
