@@ -10,6 +10,23 @@ const containerVariants = {
   visible: {
     opacity: 1,
     x: 0,
+    transition: {
+      type: "spring",
+      delay: 0.5,
+    },
+  },
+};
+
+const nextVariants = {
+  hidden: {
+    x: "-100vw",
+  },
+  visible: {
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+    },
   },
 };
 
@@ -22,7 +39,6 @@ const Base = ({ addBase, pizza }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      transition={{ type: "spring", delay: 0.5 }}
     >
       <h3>Step 1: Choose Your Base</h3>
       <ul>
@@ -44,9 +60,10 @@ const Base = ({ addBase, pizza }) => {
       {pizza.base && (
         <motion.div
           className="next"
-          initial={{ x: "-100vw" }}
-          animate={{ x: 0 }}
-          transition={{ type: "spring", stiffness: 120 }}
+          variants={nextVariants}
+          // initial="hidden"
+          // animate="visible"
+          // Variants propogate down the React tree to child elements, so if the same property names ('hidden', 'visible) are used in a child element's variants object, they will be implicitly interpreted as the objects for the 'initial' and 'animate' props, and therefore they need not be passed explicitly to the child element here.
         >
           <Link to="/toppings">
             <motion.button
