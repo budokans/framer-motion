@@ -25,7 +25,7 @@ const modalVariants = {
   },
 };
 
-export default function Modal({ showModal }) {
+export default function Modal({ showModal, onCloseModal }) {
   return (
     <AnimatePresence exitBeforeEnter>
       {showModal && (
@@ -38,7 +38,7 @@ export default function Modal({ showModal }) {
         >
           <motion.div className="modal" variants={modalVariants}>
             <p>Want to make another pizza?</p>
-            <Link to="/">
+            <Link to="/" onClick={onCloseModal}>
               <button>Start Again</button>
             </Link>
           </motion.div>

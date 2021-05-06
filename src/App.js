@@ -27,6 +27,10 @@ function App() {
     setPizza({ ...pizza, toppings: newToppings });
   };
 
+  const handleStartAgainClick = () => {
+    setPizza({ base: "", toppings: [] });
+  };
+
   return (
     <>
       <Header />
@@ -49,7 +53,7 @@ function App() {
           </Route>
         </Switch>
       </AnimatePresence>
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <Modal showModal={showModal} onCloseModal={handleStartAgainClick} />
     </>
   );
 }
